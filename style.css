@@ -1,0 +1,124 @@
+:root{
+    --bg: #ffffff;
+    --bg-accent: rgb(233, 233, 233);
+    --line-color: #3D444D;
+
+    --controls-close: #D43C56;
+    --controls-open: #24AC5F;
+    --controls-minimize: #F37204;
+
+    --text-color: #000;
+    /* --text-accent: #0192AA; */
+    --text-accent: #1f6FEB;
+}
+
+html{
+    font-size: 2.5rem ;
+}
+
+body{
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    background-color: #000;
+    font-family: "Geist Mono", monospace;
+    font-optical-sizing: auto;
+}
+
+.window{
+    --spacing: .5rem;
+    padding: var(--spacing);
+    gap: .5rem;
+    outline: 0.0625rem solid var(--line-color);
+    border-radius: .5rem;
+    background-color: var(--bg-accent);
+}
+
+.toolbar > *{
+    align-items: center;
+    gap: var(--spacing);
+}
+
+.page-name{
+    color: var(--text-color);
+    margin-right: auto;
+}
+
+.controls .dot{
+    height: .9rem;
+    aspect-ratio: 1;
+    border-radius: 100dvh;
+    background-color: red;
+}
+
+.controls .dot:nth-child(1){
+    background-color: var(--controls-close);
+}
+
+.controls .dot:nth-child(2){
+    background-color: var(--controls-minimize);
+}
+
+.controls .dot:nth-child(3){
+    background-color: var(--controls-open);
+}
+
+.toolbar img{
+    height: 1rem;
+    aspect-ratio: 1;
+    opacity: .6;
+}
+
+.terminal{
+    --inner-spacing: calc(var(--spacing) * 4);
+    flex-grow: 1;
+    background-color: var(--bg);
+    border-radius: .25rem;
+    color: var(--text-color);
+    padding: var(--inner-spacing);
+    gap: var(--inner-spacing);
+}
+
+pre span{
+    --gradient-accent: 50%;
+    --gradient-white: calc(100% - var(--gradient-accent));
+
+    color: color-mix(in srgb, #000 var(--gradient-white),var(--text-accent) var(--gradient-accent));
+}
+
+.text-accent{
+    font-weight: bold;
+    color: var(--text-accent);
+}
+
+.section-title{
+    font-weight: bold;
+    z-index: 10;
+}
+
+.hidden{
+    opacity: 0;
+    font-size: .5rem;
+}
+
+.terminal p{
+    position: relative;
+}
+
+.terminal p:not(.section-title)::before{
+    content: "│";
+    position: absolute;
+    font-weight: bold;
+    bottom: auto;
+    top: -50%;
+}
+
+.terminal .section-title::before{
+    content: "●\00A0";
+    color: var(--text-accent);
+    font-weight: bold;
+    transform-origin: center;
+    scale: 1.2;
+    translate: 0.1rem;
+    display: inline-block;
+}

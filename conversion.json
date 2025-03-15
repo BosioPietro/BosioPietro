@@ -1,0 +1,13 @@
+
+{
+    "https://www.web2pdfconvert.com/" : {
+        "delay": 1,
+        "scale": 40,
+        "width": 700, 
+        "height": 440,
+        "landscape": true,
+        "page_size": "legal",
+        "margin": "0 0 0 0"
+    },
+    "https://pdftosvg.com/it/":{}
+}
